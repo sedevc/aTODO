@@ -13,7 +13,7 @@ sudo apt-get install python-sqlite3, python-bottle, git
 ```
 
 ```
-git clone
+git clone https://github.com/sedevc/TODO.git
 ```
 
 ```
