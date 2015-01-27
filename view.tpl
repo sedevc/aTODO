@@ -31,34 +31,60 @@
 		</style>
 	</head>
 <body>
+	<h2>{{id}}</h2>
 	<div class="container">
 		<table class="main_table">
 			%for index, row in enumerate(rows):
 				<tr>
 					
 					<td width="20px"><a href="remove/{{row[0]}}"><img src="http://www.uaa.alaska.edu/templates/DenaliView/images/icons/redexmark.gif" width="15px" height="15px"></a></td>
-					<td width="20px"><a href="edit/{{row[0]}}"><img src="https://cdn3.iconfinder.com/data/icons/interaction-design/512/Edit_A-512.png" width="15px" height="15px"></a></td>
+					<td width="20px"><a href="/{{row[0]}}"><img src="https://cdn3.iconfinder.com/data/icons/interaction-design/512/Edit_A-512.png" width="15px" height="15px"></a></td>
 					<td id="rownumber">{{index+1}}:</td>
 					<td id="task">{{row[2]}}</td>
 					%if row[1]:
-						<td><img src="https://cdn2.iconfinder.com/data/icons/toolbar-signs-2/512/ok_check_yes_tick_accept_success-512.png" width="15px" height="15px"/></td>
+						<td><img src="" width="15px" height="15px"/></td>
 					%else:
-						<td><img src="" width="15px" height="15px"></td>
+						<td><img src="https://cdn2.iconfinder.com/data/icons/toolbar-signs-2/512/ok_check_yes_tick_accept_success-512.png" width="15px" height="15px"></td>
 					%end
 				</tr>
 			%end
 		</table>
+		% if id:
+		<!--************ Edit task *************-->
+		% for item in rows:
+			% if str(item[0]) == id:
+				<p>Edit task:</p>
+				<form action="/edit/{{id}}" method="GET">
+					<textarea rows="4" cols="50" name="task" maxlength="60">{{item[2]}}</textarea>
+					<br>
+					<select name="status">
+					<option value="1">open</option>
+					% if item[1] == False:
+						<option selected value="0">closed</option>
+					% else:
+						<option value="0">closed</option>
+					%end
+					</select>
+					<input type="submit" name="save" value="OK">
+				</form>
+			%end
+		%end
+
+		% else:
+		<!--************ New task *************-->
 		<p>Add a new task to the ToDo list:</p>
 		<form action="/new" method="GET">
 			<textarea rows="4" cols="50" name="task" maxlength="60">Enter your todo..</textarea>
 			<br>
 			<select name="status">
-			<option>open</option>
-			<option>closed</option>
+			<option value="1">open</option>
+			<option value="0">closed</option>
 			</select>
 			
-			<input type="submit" name="save" value="OK">
+			<input type="submit" name="save" value="Send">
 		</form>
+		%end
+
 	</div>
 
 </body>
