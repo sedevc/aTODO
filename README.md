@@ -11,7 +11,7 @@ python-sqlite3, python-bottle
 ####Installation
 
 #####Linux
-```
+```bash
 sudo apt-get install python-sqlite3, python-bottle, git
 ```
 
