@@ -8,4 +8,5 @@ python-sqlite3, python-bottle
 
 ####Schematic
 
-![AB](https://github.com/sedevc/TODO/screenshot.png)
+![AB](https://github.com/sedevc/TODO/blob/master/screenshot.png)
+
