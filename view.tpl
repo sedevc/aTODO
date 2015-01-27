@@ -50,11 +50,12 @@
 		<!--************ Edit task *************-->
 		% for item in rows:
 			% if str(item[0]) == id:
-				<p>Edit task:</p>
+				<p>Edit TODO:</p>
 				<form action="/edit/{{id}}" method="GET">
 					<textarea rows="4" cols="50" name="task" maxlength="60">{{item[2]}}</textarea>
 					<br>
 					<select name="status">
+					%  g = lambda x: "" if x else "selected"
 						<option value="1">Open</option>
 						<option {{g(item[1])}} value="0">Done</option>
 					</select>
@@ -70,8 +71,8 @@
 			<textarea rows="4" cols="50" name="task" maxlength="60">Enter your todo..</textarea>
 			<br>
 			<select name="status">
-			<option value="1">open</option>
-			<option value="0">closed</option>
+			<option value="1">Open</option>
+			<option value="0">Done</option>
 			</select>
 			
 			<input type="submit" name="save" value="Send">
