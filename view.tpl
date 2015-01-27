@@ -3,40 +3,37 @@
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300' rel='stylesheet' type='text/css'>
 		<style type="text/css">
-		body{
-			font-family: 'Roboto Slab', serif;
-			font-size: 13px;
-		}		
-		.container{
-			padding: 20px;
-			margin: 20px;
-			height: 300px;
-			width: 500px;
-			background-color: #f1f1f1;
-			overflow-y: scroll;
-		}
-		.main_table{
-			border: 1px solid black;
-			width: 470px;
-		}
-		#task{
-			font-size: 12px;
-		}
-		#rownumber{
-			width: 20px;
-			font-size: 12px;
-			font-style: bold;
-		}
-
+			body{
+				font-family: 'Roboto Slab', serif;
+				font-size: 13px;
+			}		
+			.container{
+				padding: 20px;
+				margin: 20px;
+				height: 300px;
+				width: 500px;
+				background-color: #f1f1f1;
+				overflow-y: scroll;
+			}
+			.main_table{
+				border: 1px solid black;
+				width: 470px;
+			}
+			#task{
+				font-size: 12px;
+			}
+			#rownumber{
+				width: 20px;
+				font-size: 12px;
+				font-style: bold;
+			}
 		</style>
 	</head>
 <body>
-	<h2>{{id}}</h2>
 	<div class="container">
 		<table class="main_table">
 			%for index, row in enumerate(rows):
 				<tr>
-					
 					<td width="20px"><a href="remove/{{row[0]}}"><img src="http://www.uaa.alaska.edu/templates/DenaliView/images/icons/redexmark.gif" width="15px" height="15px"></a></td>
 					<td width="20px"><a href="/{{row[0]}}"><img src="https://cdn3.iconfinder.com/data/icons/interaction-design/512/Edit_A-512.png" width="15px" height="15px"></a></td>
 					<td id="rownumber">{{index+1}}:</td>
@@ -65,7 +62,7 @@
 						<option value="0">closed</option>
 					%end
 					</select>
-					<input type="submit" name="save" value="OK">
+					<input type="submit" name="save" value="Send">
 				</form>
 			%end
 		%end

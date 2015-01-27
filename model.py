@@ -5,6 +5,7 @@ class DbHandle():
 		self.dbname = dbname
 		self.tablename = tablename
 		self.conn = sqlite3.connect(self.dbname)
+		self.createTable()
 		self.c = self.conn.cursor()
 	def get(self):
 		self.c.execute("SELECT id, status, task FROM todo")
@@ -18,6 +19,9 @@ class DbHandle():
 		self.conn.commit()
 	def delete(self, id_task):
 		self.c.execute("DELETE FROM todo WHERE id LIKE ?", (id_task,))
+		self.conn.commit()
+	def createTable(self):
+		self.conn.execute("CREATE TABLE IF NOT EXISTS todo (id INTEGER PRIMARY KEY, task char(100) NOT NULL, status bool NOT NULL)")
 		self.conn.commit()
 	def __del__(self):
 		self.c.close()
