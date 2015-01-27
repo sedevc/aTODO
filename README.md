@@ -6,13 +6,13 @@ My firs MVC based app.
 python-sqlite3, python-bottle
 
 ####Installation
-´´´
+
 #####Linux
-sudo apt-get install python-sqlite3, python-bottle, git
-git clone
-cd TODO
-sudo python controller.py
-´´´
+  sudo apt-get install python-sqlite3, python-bottle, git
+  git clone
+  cd TODO
+  sudo python controller.py
+
 Go to http://ip:8080
 
 ####Screenshot
