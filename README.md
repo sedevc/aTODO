@@ -9,8 +9,11 @@ python-sqlite3, python-bottle
 
 #####Linux
     sudo apt-get install python-sqlite3, python-bottle, git
+
     git clone
+
     cd TODO
+
     sudo python controller.py
 
 Go to http://ip:8080
